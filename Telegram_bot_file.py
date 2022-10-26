@@ -1,9 +1,11 @@
 import telebot
 import random
-import os
+import requests
 
 bot = telebot.TeleBot('5797605402:AAHHmMrwPZgAFKvO065meCrVvltWf4IG7ko')
 counter = 0
+url = "https://github.com/RGamz/telegram_photobot/blob/main/bot_photos/1.jpeg"
+resp = requests.get(url)
 print("Bot started...")
 
 
@@ -28,7 +30,7 @@ def send_message(message):
     if text in ("привет", "hi", "hello"):
         bot.send_message(chat_id, "Дратути!")
     elif text == "фото":
-        bot.send_photo(chat_id, open('/home/swap/Downloads/bot_photos/' + random.choice(os.listdir('/home/swap/Downloads/bot_photos/')), 'rb'))
+        bot.send_photo(chat_id, open('resp', 'rb'))
     else:
         bot.send_message(chat_id, "Моя твоя не понимать!")
 
